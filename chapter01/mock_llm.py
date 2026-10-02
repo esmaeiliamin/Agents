@@ -1,13 +1,12 @@
 """
 Mock LLM simulation engine for Chapter 1: Foundations of Agent Engineering.
-Book: "AI Agents" by Imran Ahmad (Packt, 2026)
+Book: "AI Agents" (Packt, 2026)
 
 Provides:
     - MockResponse: Lightweight response object mirroring OpenAI structure.
     - MockLLM: Full simulation engine with chapter-derived response bank,
       keyword-scoring routing, configurable latency, and failure injection.
 
-Ref: Strategy §3.3 (class specs), §4 (response bank)
 """
 
 import json
@@ -29,8 +28,6 @@ class MockResponse:
         content (str): The response text.
         model (str): Model identifier (default: "mock-gpt-4").
         usage (dict): Simulated token usage counts.
-
-    Author: Imran Ahmad
     """
 
     def __init__(self, content, model="mock-gpt-4", usage=None):
@@ -64,7 +61,7 @@ class MockLLM:
         failure_rate (float): Probability [0.0, 1.0] of raising a
             ConnectionError to simulate API failures.
 
-    Author: Imran Ahmad
+    
     """
 
     def __init__(self, simulate_latency=True, failure_rate=0.0):
@@ -86,7 +83,6 @@ class MockLLM:
         Raises:
             ConnectionError: If failure_rate check triggers (simulated API failure).
 
-        Author: Imran Ahmad
         """
         # Simulate network latency
         if self.simulate_latency:
